@@ -817,6 +817,71 @@ footer::before {
     font-size: 0.95rem;
 }
 
+/* Popup Modal */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 20, 14, 0.6);
+    backdrop-filter: var(--glass-blur);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: var(--bg-solid);
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+    border: var(--glass-border);
+    transform: translateY(30px) scale(0.95);
+    transition: var(--transition);
+}
+
+.popup-overlay.active .popup-content {
+    transform: translateY(0) scale(1);
+}
+
+.popup-icon {
+    font-size: 4rem;
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+.popup-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.popup-message {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+.popup-close-btn {
+    width: 100%;
+    justify-content: center;
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .hero { flex-direction: column; text-align: center; padding-top: 150px; }

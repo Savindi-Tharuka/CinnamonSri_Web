@@ -480,27 +480,27 @@
                         <i class="fa-solid fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>cinnamonsri.research@gmail.com</p>
+                            <p>salindusandun57@gmail.com</p>
                         </div>
                     </div>
                     <img src="assets/images/new_research.jpg" alt="Cinnamon Research" class="contact-img">
                 </div>
 
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <h4>Send Us a Message</h4>
                     <p class="form-desc">Redefining smart agriculture with live IoT integrations and deep learning
                         predictions.</p>
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" id="senderName" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <input type="email" id="senderEmail" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Subject" required>
+                        <input type="text" id="senderSubject" placeholder="Subject" required>
                     </div>
                     <div class="form-group">
-                        <textarea rows="5" placeholder="Message" required></textarea>
+                        <textarea id="senderMessage" rows="5" placeholder="Message" required></textarea>
                     </div>
                     <button type="submit" class="btn-primary">Send Message</button>
                 </form>
@@ -538,6 +538,16 @@
             <p>&copy; 2026 CinnamonSri Research Project. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Success Popup Modal -->
+    <div class="popup-overlay" id="successPopup">
+        <div class="popup-content">
+            <i class="fa-solid fa-circle-check popup-icon"></i>
+            <h3 class="popup-title">Success!</h3>
+            <p class="popup-message">Your email client has been opened. Please send the message from there.</p>
+            <button class="btn-primary popup-close-btn" id="closePopupBtn">OK</button>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>

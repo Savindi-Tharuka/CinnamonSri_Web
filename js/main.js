@@ -122,13 +122,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle Form Submission (Prevent default reload)
-    const form = document.querySelector('.contact-form');
+    // Handle Form Submission with mailto
+    const form = document.getElementById('contactForm');
+    const successPopup = document.getElementById('successPopup');
+    const closePopupBtn = document.getElementById('closePopupBtn');
+
     if(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert("Thank you for your message. We will get back to you shortly!");
+            
+            const name = document.getElementById('senderName').value;
+            const email = document.getElementById('senderEmail').value;
+            const subject = document.getElementById('senderSubject').value;
+            const message = document.getElementById('senderMessage').value;
+            
+            const mailtoLink = `mailto:salindusandun57@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message)}`;
+            
+            window.location.href = mailtoLink;
+            
+            // Show custom popup modal
+            if(successPopup) {
+                successPopup.classList.add('active');
+            }
+            
             form.reset();
+        });
+    }
+
+    // Close Popup Logic
+    const closePopup = () => {
+        if(successPopup) {
+            successPopup.classList.remove('active');
+        }
+    };
+
+    if(closePopupBtn) {
+        closePopupBtn.addEventListener('click', closePopup);
+    }
+
+    // Close popup when clicking outside the content
+    if(successPopup) {
+        successPopup.addEventListener('click', (e) => {
+            if (e.target === successPopup) {
+                closePopup();
+            }
         });
     }
 });
